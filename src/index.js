@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     function displayMovies() {
-        fetch('http://localhost:3000/films')
+        fetch('https://code-challenge3-data.onrender.com/films')
             .then(response => response.json())
             .then(data => {
                 const filmList = document.getElementById('films');
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateTicketsSold(movie.id, updatedTicketsSold)
                     .then(() => {
                         // Fetch updated movie data after tickets are sold
-                        return fetch('http://localhost:3000/films');
+                        return fetch('https://code-challenge3-data.onrender.com/films');
                     })
                     .then(response => response.json())
                     .then(data => {
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateTicketsSold(movieId, updatedTicketsSold) {
-        return fetch(`http://localhost:3000/films/${movieId}`, {
+        return fetch(`https://code-challenge3-data.onrender.com/films${movieId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function deleteFilm(movieId, listItem) {
-        fetch(`http://localhost:3000/films/${movieId}`, {
+        fetch(`https://code-challenge3-data.onrender.com/films${movieId}`, {
             method: 'DELETE',
         })
             .then(response => {
